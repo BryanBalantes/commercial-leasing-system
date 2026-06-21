@@ -19,7 +19,11 @@ public class SecurityConfiguration {
         // are open to the public (user is not logged in)
         httpSecurity.authorizeHttpRequests(
                 authorize -> {
-                    authorize.requestMatchers("/images/*").permitAll();
+                    authorize.requestMatchers(
+                            "/images/**",
+                            "/css/**",
+                            "/js/**"
+                    ).permitAll();
                     // Allows all users, including unauthenticated users, to access the home, login, and registration pages.
                     authorize.requestMatchers("/", "/authenticate", "/register").permitAll();
                     // Restricts the user pages and rest endpoints to ADMIN users

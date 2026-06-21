@@ -303,8 +303,8 @@
                   </div>
                 </div>
                 <div class="card-row">
-                  <div class="card-label">Start Date</div>
-                  <div class="card-value" th:text="${lease.entryDate}"></div>
+                  <div class="card-label">Entry Date</div>
+                  <div class="card-value" th:text="${lease != null ? lease.entryDate : 'No Active Lease'}"></div>
                 </div>
 
                 <div class="card-row" style="grid-column: 1 / -1;">
