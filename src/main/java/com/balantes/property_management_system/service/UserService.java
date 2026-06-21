@@ -3,6 +3,8 @@ package com.balantes.property_management_system.service;
 import com.balantes.property_management_system.dto.AuthenticatedUserDTO;
 import com.balantes.property_management_system.dto.UserDTO;
 import com.balantes.property_management_system.model.User;
+import com.balantes.property_management_system.model.enums.LeaseStatus;
+import com.balantes.property_management_system.repository.LeaseRepository;
 import com.balantes.property_management_system.repository.UserRepository;
 import com.balantes.property_management_system.response.CloudinaryResponse;
 import com.balantes.property_management_system.util.FileUploadUtil;

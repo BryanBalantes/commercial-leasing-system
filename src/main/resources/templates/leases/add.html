@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${lease.id != null ? 'Update Lease' : 'Create Lease'}"></title>
+  <link rel="icon" type="image/png" th:href="@{/images/CommercialSpace_Logo.png}">
+  <link rel="stylesheet" href="/css/lease-style/add-lease-style.css">
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <img th:src="@{/images/CommercialSpace_Logo.png}" alt="D AND J RENTALS" class="brand-logo">
+      <span class="brand-text">D AND J RENTALS</span>
+    </div>
+
+    <div class="navbar-menu">
+      <a th:href="@{/homepage/}" class="nav-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Home</span>
+      </a>
+      <a th:href="@{/users/}" class="nav-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span>Users</span>
+      </a>
+      <a th:href="@{/leases/add}" class="nav-link active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <!-- Notebook -->
+          <path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
+          <path d="M15 3v4h4"></path>
+
+          <!-- Pen -->
+          <path d="M9 16l5-5 2 2-5 5H9v-2z"></path>
+          <path d="M13 10l2 2"></path>
+        </svg>
+        <span>Leases</span>
+      </a>
+
+      <a th:href="@{/commercial-units}" class="nav-link">
+        <svg width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+
+          <!-- Building -->
+          <rect x="3" y="2" width="14" height="20" rx="2"></rect>
+
+          <!-- Windows -->
+          <path d="M7 6h.01"></path>
+          <path d="M11 6h.01"></path>
+          <path d="M7 10h.01"></path>
+          <path d="M11 10h.01"></path>
+          <path d="M7 14h.01"></path>
+          <path d="M11 14h.01"></path>
+
+          <!-- Door -->
+          <path d="M8 22v-4h4v4"></path>
+
+          <!-- Plus Sign -->
+          <path d="M20 8v6"></path>
+          <path d="M17 11h6"></path>
+        </svg>
+
+        <span>Units</span>
+      </a>
+    </div>
+
+    <a th:href="@{/logout}" class="logout-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+        <polyline points="16 17 21 12 16 7"></polyline>
+        <line x1="21" y1="12" x2="9" y2="12"></line>
+      </svg>
+      <span>Logout</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Mobile Bottom Navigation -->
+<nav class="bottom-nav">
+  <!--  <a th:href="@{/homepage/}" class="bottom-nav-item">-->
+  <!--    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">-->
+  <!--      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>-->
+  <!--      <polyline points="9 22 9 12 15 12 15 22"></polyline>-->
+  <!--    </svg>-->
+  <!--    <span>Home</span>-->
+  <!--  </a>-->
+
+  <a th:href="@{/commercial-units}" class="bottom-nav-item">
+    <svg width="16" height="16" viewBox="0 0 24 24"
+         fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+
+      <!-- Building -->
+      <rect x="3" y="2" width="14" height="20" rx="2"></rect>
+
+      <!-- Windows -->
+      <path d="M7 6h.01"></path>
+      <path d="M11 6h.01"></path>
+      <path d="M7 10h.01"></path>
+      <path d="M11 10h.01"></path>
+      <path d="M7 14h.01"></path>
+      <path d="M11 14h.01"></path>
+
+      <!-- Door -->
+      <path d="M8 22v-4h4v4"></path>
+
+      <!-- Plus Sign -->
+      <path d="M20 8v6"></path>
+      <path d="M17 11h6"></path>
+    </svg>
+
+    <span>Units</span>
+  </a>
+
+  <a th:href="@{/users/}"  class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+      <circle cx="9" cy="7" r="4"></circle>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+    </svg>
+    <span>Users</span>
+  </a>
+
+  <!-- CENTER SLOT (EMPTY FOR SPACING) -->
+  <div class="nav-spacer"></div>
+
+  <a th:href="@{/leases/add}" class="bottom-nav-item active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <!-- Notebook -->
+      <path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
+      <path d="M15 3v4h4"></path>
+
+      <!-- Pen -->
+      <path d="M9 16l5-5 2 2-5 5H9v-2z"></path>
+      <path d="M13 10l2 2"></path>
+    </svg>
+    <span>Leases</span>
+  </a>
+
+  <a th:href="@{/logout}" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+      <polyline points="16 17 21 12 16 7"></polyline>
+      <line x1="21" y1="12" x2="9" y2="12"></line>
+    </svg>
+    <span>Logout</span>
+  </a>
+
+  <!-- FLOATING BUTTON -->
+  <a th:href="@{/homepage/}" class="center-btn ">
+    <img src="/images/CommercialSpace_Logo.png" alt="logo">
+  </a>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <h1 th:text="${lease.id != null ? 'Update Lease' : 'Create Lease'}"></h1>
+
+    <form
+            th:action="@{${lease.id != null ? '/leases/update' : '/leases/add'}}"
+            th:object="${lease}"
+            method="post"
+            enctype="multipart/form-data"
+    >
+      <input type="hidden" th:field="*{id}" />
+
+      <!-- TENANT -->
+      <div class="form-group">
+        <label>Tenant</label>
+        <select th:field="*{userId}" required>
+          <option value="">Select Tenant</option>
+          <option
+                  th:each="u : ${users}"
+                  th:value="${u.id}"
+                  th:text="${u.firstName + ' ' + u.lastName}"
+          ></option>
+        </select>
+      </div>
+
+      <!-- BASIC -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Entry Date</label>
+          <input type="date" th:field="*{entryDate}" required />
+        </div>
+
+        <div class="form-group">
+          <label>Monthly Rental</label>
+          <!--          <input-->
+          <!--                  type="number"-->
+          <!--                  step="0.01"-->
+          <!--                  th:field="*{monthlyRental}"-->
+          <!--                  required-->
+          <!--          />-->
+          <input type="number"
+                 step="0.01"
+                 th:field="*{monthlyRental}"
+                 id="monthlyRental"
+                 readonly />
+        </div>
+      </div>
+
+      <!-- FINANCIAL -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Advance</label>
+          <input
+                  type="number"
+                  step="0.01"
+                  th:field="*{oneMonthAdvance}"
+                  required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Deposit</label>
+          <input
+                  type="number"
+                  step="0.01"
+                  th:field="*{oneMonthDeposit}"
+                  required
+          />
+        </div>
+      </div>
+
+      <!-- COMMERCIAL -->
+      <div class="form-group">
+        <label>Commercial Unit</label>
+        <select th:field="*{commercialUnitId}" id="unitSelect" required>
+          <option value="">Select Unit</option>
+
+          <option th:each="unit : ${units}"
+                  th:value="${unit.id}"
+                  th:text="${unit.unitName}"
+                  th:attr="data-rent=${unit.monthlyRent}">
+          </option>
+        </select>
+      </div>
+
+      <!-- STATUS -->
+      <div class="form-group">
+        <label>Status</label>
+        <select th:field="*{status}">
+          <option value="">Select</option>
+          <option value="ACTIVE">Active</option>
+          <option value="ENDED">Ended</option>
+        </select>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="form-group">
+        <label>Upload Receipt</label>
+        <input
+                type="file"
+                name="file"
+                accept="image/*"
+                onchange="previewImage(event)"
+        />
+
+        <div class="preview">
+          <img
+                  id="preview"
+                  th:if="${lease.receiptImageUrl != null}"
+                  th:src="${lease.receiptImageUrl}"
+          />
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="btn-group">
+        <button
+                type="submit"
+                class="btn btn-primary"
+                th:text="${lease.id != null ? 'Update' : 'Create'}"
+        ></button>
+        <a th:href="@{/homepage/}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/add-lease-script.js"></script>
+</body>
+</html>
+
+
+
+
