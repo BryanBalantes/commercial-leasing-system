@@ -33,19 +33,13 @@ public class Lease {
 
     private String cloudinaryImageId;
 
-    // Track status (IMPORTANT)
     @Enumerated(EnumType.STRING)
     private LeaseStatus status; // ACTIVE, ENDED
 
-    // MANY leases → ONE user
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    // Constructors
     public Lease() {}
 
     public Lease(LeaseDTO dto, User user, CommercialUnit unit) {
@@ -59,9 +53,6 @@ public class Lease {
         this.receiptImageUrl = dto.getReceiptImageUrl();
         this.cloudinaryImageId = dto.getCloudinaryImageId();
     }
-
-    // Getters and Setters
-
 
     public int getId() {
         return id;
@@ -102,15 +93,6 @@ public class Lease {
     public void setOneMonthDeposit(Double oneMonthDeposit) {
         this.oneMonthDeposit = oneMonthDeposit;
     }
-
-//    public Boolean getCommercialUnit() {
-//        return commercialUnit;
-//    }
-//
-//    public void setCommercialUnit(Boolean commercialUnit) {
-//        this.commercialUnit = commercialUnit;
-//    }
-
 
     public CommercialUnit getCommercialUnit() {
         return commercialUnit;

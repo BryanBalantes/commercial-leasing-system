@@ -1,6 +1,7 @@
 package com.balantes.property_management_system.dto;
 
 import com.balantes.property_management_system.model.Lease;
+import com.balantes.property_management_system.model.enums.CommercialUnitStatus;
 import com.balantes.property_management_system.model.enums.LeaseStatus;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

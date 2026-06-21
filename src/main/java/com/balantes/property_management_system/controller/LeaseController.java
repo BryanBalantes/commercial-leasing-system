@@ -1,6 +1,7 @@
 package com.balantes.property_management_system.controller;
 
 import com.balantes.property_management_system.dto.LeaseDTO;
+import com.balantes.property_management_system.service.CommercialUnitService;
 import com.balantes.property_management_system.service.LeaseService;
 import com.balantes.property_management_system.service.UserService;
 import jakarta.validation.Valid;
@@ -29,22 +30,18 @@ public class LeaseController {
         this.commercialUnitService = commercialUnitService;
     }
 
-    // ✅ LIST ALL LEASES
     @GetMapping
     public String list(Model model) {
         model.addAttribute("leases", leaseService.getAll());
         return "leases/list";
     }
 
-    // ✅ VIEW SINGLE LEASE
     @GetMapping("/view/{id}")
     public String view(@PathVariable int id, Model model) {
         model.addAttribute("lease", leaseService.getById(id));
         return "leases/view";
     }
 
-
-    // ✅ SHOW CREATE PAGE
     @GetMapping("/add")
     public String addForm(Model model) {
         model.addAttribute("lease", new LeaseDTO());
@@ -53,7 +50,6 @@ public class LeaseController {
         return "leases/add";
     }
 
-    // ✅ CREATE LEASE (WITH IMAGE)
     @PostMapping("/add")
     public String create(
             @Valid @ModelAttribute("lease") LeaseDTO leaseDTO,
@@ -70,7 +66,6 @@ public class LeaseController {
         return "redirect:/users/";
     }
 
-    // ✅ SHOW UPDATE PAGE
     @GetMapping("/update/{id}")
     public String updateForm(@PathVariable int id, Model model) {
 
@@ -93,20 +88,16 @@ public class LeaseController {
         return "redirect:/users/view/" + leaseDTO.getUserId();
     }
 
-    // ✅ DELETE LEASE
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id) {
         leaseService.delete(id);
         return "redirect:/users/";
     }
 
-    // ✅ VIEW LEASES BY USER
     @GetMapping("/user/{userId}")
     public String getByUser(@PathVariable int userId, Model model) {
         model.addAttribute("leases", leaseService.getByUser(userId));
         model.addAttribute("user", userService.getById(userId));
         return "leases/user-leases";
     }
-
-
 }

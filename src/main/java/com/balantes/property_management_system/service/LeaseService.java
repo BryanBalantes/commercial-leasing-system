@@ -1,9 +1,12 @@
 package com.balantes.property_management_system.service;
 
 import com.balantes.property_management_system.dto.LeaseDTO;
+import com.balantes.property_management_system.model.CommercialUnit;
 import com.balantes.property_management_system.model.Lease;
 import com.balantes.property_management_system.model.User;
+import com.balantes.property_management_system.model.enums.CommercialUnitStatus;
 import com.balantes.property_management_system.model.enums.LeaseStatus;
+import com.balantes.property_management_system.repository.CommercialUnitRepository;
 import com.balantes.property_management_system.repository.LeaseRepository;
 import com.balantes.property_management_system.repository.UserRepository;
 import com.balantes.property_management_system.response.CloudinaryResponse;
