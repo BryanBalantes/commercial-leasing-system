@@ -3,6 +3,7 @@ package com.balantes.property_management_system.controller;
 import com.balantes.property_management_system.dto.LeaseDTO;
 import com.balantes.property_management_system.service.CommercialUnitService;
 import com.balantes.property_management_system.service.LeaseService;
+import com.balantes.property_management_system.service.TenantPaymentRecordService;
 import com.balantes.property_management_system.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
