@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title th:text="${title} + ' | Admin'"></title>
+    <link rel="icon" type="image/png" th:href="@{/images/CommercialSpace_Logo.png}">
+    <link rel="stylesheet" href="/css/home-style/home-style.css">
+  </head>
+  <body>
+    <!-- Desktop Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <img th:src="@{/images/CommercialSpace_Logo.png}" alt="D AND J RENTALS" class="brand-logo">
+          <span class="brand-text">D AND J RENTALS</span>
+        </div>
+
+        <div class="navbar-menu">
+          <a th:href="@{/homepage/}" class="nav-link active">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Home</span>
+          </a>
+          <a th:href="@{/users/}" class="nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Users</span>
+          </a>
+          <a th:href="@{/leases/add}" class="nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <!-- Notebook -->
+              <path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
+              <path d="M15 3v4h4"></path>
+
+              <!-- Pen -->
+              <path d="M9 16l5-5 2 2-5 5H9v-2z"></path>
+              <path d="M13 10l2 2"></path>
+            </svg>
+            <span>Leases</span>
+          </a>
+
+          <a th:href="@{/commercial-units}" class="nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+
+              <!-- Building -->
+              <rect x="3" y="2" width="14" height="20" rx="2"></rect>
+
+              <!-- Windows -->
+              <path d="M7 6h.01"></path>
+              <path d="M11 6h.01"></path>
+              <path d="M7 10h.01"></path>
+              <path d="M11 10h.01"></path>
+              <path d="M7 14h.01"></path>
+              <path d="M11 14h.01"></path>
+
+              <!-- Door -->
+              <path d="M8 22v-4h4v4"></path>
+
+              <!-- Plus Sign -->
+              <path d="M20 8v6"></path>
+              <path d="M17 11h6"></path>
+            </svg>
+
+            <span>Units</span>
+          </a>
+        </div>
+
+        <a th:href="@{/logout}" class="logout-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Logout</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="bottom-nav">
+
+      <a th:href="@{/commercial-units}" class="bottom-nav-item">
+        <svg width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+
+          <!-- Building -->
+          <rect x="3" y="2" width="14" height="20" rx="2"></rect>
+
+          <!-- Windows -->
+          <path d="M7 6h.01"></path>
+          <path d="M11 6h.01"></path>
+          <path d="M7 10h.01"></path>
+          <path d="M11 10h.01"></path>
+          <path d="M7 14h.01"></path>
+          <path d="M11 14h.01"></path>
+
+          <!-- Door -->
+          <path d="M8 22v-4h4v4"></path>
+
+          <!-- Plus Sign -->
+          <path d="M20 8v6"></path>
+          <path d="M17 11h6"></path>
+        </svg>
+
+        <span>Units</span>
+      </a>
+
+      <a th:href="@{/users/}"  class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span>Users</span>
+      </a>
+
+      <!-- CENTER SLOT (EMPTY FOR SPACING) -->
+      <div class="nav-spacer"></div>
+
+      <a th:href="@{/leases/add}" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <!-- Notebook -->
+          <path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
+          <path d="M15 3v4h4"></path>
+
+          <!-- Pen -->
+          <path d="M9 16l5-5 2 2-5 5H9v-2z"></path>
+          <path d="M13 10l2 2"></path>
+        </svg>
+        <span>Leases</span>
+      </a>
+
+      <a th:href="@{/logout}" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Logout</span>
+      </a>
+
+      <!-- FLOATING BUTTON -->
+      <a th:href="@{/homepage/}" class="center-btn ">
+        <img src="/images/CommercialSpace_Logo.png" alt="logo">
+      </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Header -->
+        <div class="header">
+          <h1 class="header-title">Dashboard</h1>
+          <p class="header-subtitle">Welcome back! Here's your property management overview.</p>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+          <!-- Revenue Card -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <p class="metric-label">Total Revenue</p>
+                <p class="metric-value" th:text="${totalRevenue}">₱0.00</p>
+              </div>
+              <div class="metric-icon purple-gradient">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="metric-desc">All-time earnings</span>
+            </div>
+          </div>
+
+          <!-- Active Tenants Card -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <p class="metric-label">Active Tenants</p>
+                <p class="metric-value" th:text="${activeTenants}"></p>
+              </div>
+              <div class="metric-icon blue-gradient">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="metric-desc">Active leases</span>
+            </div>
+          </div>
+
+          <!-- Occupied Spaces Card -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <p class="metric-label">Occupied Spaces</p>
+                <p class="metric-value" th:text="${totalLeases}"></p>
+              </div>
+              <div class="metric-icon amber-gradient">
+                <svg width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+
+                  <!-- Building -->
+                  <rect x="3" y="2" width="14" height="20" rx="2"></rect>
+
+                  <!-- Windows -->
+                  <path d="M7 6h.01"></path>
+                  <path d="M11 6h.01"></path>
+                  <path d="M7 10h.01"></path>
+                  <path d="M11 10h.01"></path>
+                  <path d="M7 14h.01"></path>
+                  <path d="M11 14h.01"></path>
+
+                  <!-- Door -->
+                  <path d="M8 22v-4h4v4"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="metric-desc">Total units</span>
+              <div class="metric-change">
+                <span th:text="${occupiedRate + ' Occupied'}"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Available Spaces Card -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <p class="metric-label">Available Spaces</p>
+                <p class="metric-value" th:text="${availableSpaces}"></p>
+              </div>
+              <div class="metric-icon amber-gradient">
+                <svg width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+
+                  <!-- Main building -->
+                  <rect x="4" y="3" width="16" height="18" rx="1"></rect>
+
+                  <!-- Windows -->
+                  <line x1="8" y1="7" x2="8" y2="7"></line>
+                  <line x1="12" y1="7" x2="12" y2="7"></line>
+                  <line x1="16" y1="7" x2="16" y2="7"></line>
+
+                  <line x1="8" y1="11" x2="8" y2="11"></line>
+                  <line x1="12" y1="11" x2="12" y2="11"></line>
+                  <line x1="16" y1="11" x2="16" y2="11"></line>
+
+                  <line x1="8" y1="15" x2="8" y2="15"></line>
+                  <line x1="12" y1="15" x2="12" y2="15"></line>
+                  <line x1="16" y1="15" x2="16" y2="15"></line>
+
+                  <!-- Door -->
+                  <path d="M10 21v-4h4v4"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="metric-desc">Available units</span>
+              <div class="metric-change">
+                <span th:text="${availableRate + ' Available'}"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tables Section -->
+        <div class="tables-section">
+          <!-- First Table -->
+          <div class="table-card">
+            <div class="table-header">
+              <h2 class="table-title">Active Tenants</h2>
+              <a th:href="@{/users/}" class="view-all-btn">View All →</a>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>User Type</th>
+                  <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                  <td>
+                    <div class="user-cell">
+                      <div class="user-avatar gradient-avatar"
+                           th:text="${#strings.substring(user.firstName,0,1)}">
+                      </div>
+                      <span th:text="${user.firstName + ' ' + user.lastName}"></span>
+                    </div>
+                  </td>
+                  <td>
+                       <span class="badge active"
+                             th:text="${user.type}">
+                       </span>
+                  </td>
+                  <td>
+                    <span class="badge active" th:if="${user.active}">ACTIVE</span>
+                    <span class="badge inactive" th:unless="${user.active}">INACTIVE</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Second Table -->
+          <div class="table-card">
+            <div class="table-header">
+              <h2 class="table-title">Active Lease</h2>
+              <button class="view-all-btn">View All →</button>
+            </div>
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                <tr>
+                  <th>Unit Name</th>
+                  <th>Tenant</th>
+                  <th>Monthly</th>
+                  <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="lease : ${leases}">
+                  <td>
+                    <div class="user-cell">
+                      <div class="user-avatar gradient-avatar">
+                        <span th:text="${#strings.substring(lease.unitName, 0, 2)}">UN</span>
+                      </div>
+                      <span th:text="${lease.unitName}">Unit</span>
+                    </div>
+                  </td>
+                  <td th:text="${lease.user != null ? lease.user.firstName + ' ' + lease.user.lastName : 'No Tenant'}">
+                    Tenant
+                  </td>
+                  <td th:text="${lease.monthlyRental}">0</td>
+                  <td>
+                     <span th:classappend="'badge ' + ${lease.status != null ? lease.status.name().toLowerCase() : 'unknown'}"
+                           th:text="${lease.status}">
+                     </span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

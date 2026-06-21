@@ -1,0 +1,751 @@
+/* CSS Variables - Color System */
+:root {
+    --bg-primary: #0f0f1e;
+    --bg-secondary: #1a1a2e;
+    --bg-tertiary: #16213e;
+    --bg-card: rgba(26, 26, 46, 0.4);
+    --bg-card-hover: rgba(26, 26, 46, 0.6);
+    --text-primary: #f8f8f8;
+    --text-secondary: #a0a0b0;
+    --text-tertiary: #6b7280;
+    --border-color: rgba(51, 65, 85, 0.5);
+    --border-color-light: rgba(71, 85, 105, 0.3);
+    --accent-purple: #a78bfa;
+    --accent-blue: #60a5fa;
+    --accent-amber: #fbbf24;
+    --accent-jade: #10BD3E;
+    --accent-red: #ef4444;
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+    padding-bottom: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+}
+
+/* Navigation Bar (Desktop) */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(26, 26, 46, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.brand-logo {
+    height: 40px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+.brand-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 8px;
+    margin-left: 48px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    background-color: rgba(71, 85, 105, 0.5);
+    color: var(--text-primary);
+}
+
+.nav-link.active {
+    background-color: rgba(167, 139, 250, 0.2);
+    color: var(--accent-purple);
+    border-color: rgba(167, 139, 250, 0.3);
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.logout-btn:hover {
+    background-color: rgba(71, 85, 105, 0.5);
+    color: var(--text-primary);
+}
+
+/* Mobile Bottom Navigation */
+.bottom-nav {
+    display: none;
+}
+
+/* Main Content */
+.main-content {
+    padding: 32px 0;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Header */
+.header {
+    margin-bottom: 32px;
+}
+
+.header-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    word-wrap: break-word;
+}
+
+.header-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    word-wrap: break-word;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: var(--transition);
+}
+
+.metric-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-color-light);
+}
+
+.metric-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.metric-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    word-wrap: break-word;
+}
+
+.metric-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0.8;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.metric-card:hover .metric-icon {
+    opacity: 1;
+}
+
+.metric-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.purple-gradient {
+    background: linear-gradient(135deg, #9333ea, #7c3aed);
+}
+
+.blue-gradient {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.amber-gradient {
+    background: linear-gradient(135deg, #d97706, #b45309);
+}
+
+.metric-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.metric-desc {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.metric-change {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-jade);
+}
+
+/**
+.metric-change.up {
+    color: var(--accent-jade);
+}
+
+.metric-change.down {
+    color: var(--accent-red);
+}
+
+.metric-change.neutral {
+    color: var(--accent-jade);
+}
+
+**/
+
+/* Tables Section */
+.tables-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.table-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.table-card:hover {
+    border-color: var(--border-color-light);
+}
+
+.table-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(15, 15, 30, 0.3);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.table-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.view-all-btn {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent-purple);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.view-all-btn:hover {
+    color: #c4b5fd;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.data-table thead {
+    background-color: rgba(15, 15, 30, 0.3);
+}
+
+.data-table th {
+    padding: 16px 12px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--border-color-light);
+    transition: var(--transition);
+}
+
+.data-table tbody tr:hover {
+    background-color: rgba(71, 85, 105, 0.2);
+}
+
+.data-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.data-table td {
+    padding: 16px 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    flex-shrink: 0;
+}
+
+.gradient-avatar {
+    background: linear-gradient(135deg, #9333ea, #2563eb);
+}
+
+.user-cell span {
+    font-weight: 500;
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Status Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid;
+    white-space: nowrap;
+}
+
+.badge.active {
+    background-color: rgba(29, 198, 74, 0.2);
+    color: #10BD3E;
+    border-color: rgba(29, 198, 74, 0.3);
+}
+
+.badge.pending {
+    background-color: rgba(251, 191, 36, 0.2);
+    color: #fde047;
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+.badge.inactive {
+    background-color: rgba(107, 114, 128, 0.2);
+    color: #9ca3af;
+    border-color: rgba(107, 114, 128, 0.3);
+}
+
+/* Action Buttons */
+.action-btn {
+    padding: 4px 8px;
+    color: var(--text-tertiary);
+    transition: var(--transition);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.action-btn:hover {
+    color: var(--text-secondary);
+}
+
+/* ================================
+   RESPONSIVE DESIGN - TABLET & DESKTOP
+   ================================ */
+
+/* Tablet Landscape (768px+) */
+@media (min-width: 769px) {
+    .navbar {
+        display: block;
+    }
+
+    .bottom-nav {
+        display: none;
+    }
+
+    .container {
+        padding: 0 24px;
+    }
+
+    .navbar-container {
+        padding: 0 24px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .main-content {
+        padding-bottom: 32px;
+    }
+}
+
+/* ================================
+   RESPONSIVE DESIGN - MOBILE
+   ================================ */
+
+@media (max-width: 768px) {
+    /* Hide Desktop Navigation */
+    .navbar {
+        display: none;
+    }
+
+    /* Layout adjustments */
+    .main-content {
+        padding: 24px 0 100px 0;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    /* Header adjustments */
+    .header {
+        margin-bottom: 24px;
+    }
+
+    .header-title {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .header-subtitle {
+        font-size: 14px;
+    }
+
+    /* Metrics Grid - Single Column on Mobile */
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .metric-card {
+        padding: 16px;
+    }
+
+    .metric-value {
+        font-size: 24px;
+    }
+
+    .metric-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .metric-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Tables adjustments */
+    .tables-section {
+        gap: 24px;
+    }
+
+    .table-card {
+        border-radius: 8px;
+    }
+
+    .table-header {
+        padding: 12px;
+    }
+
+    .table-title {
+        font-size: 16px;
+        flex: 1;
+    }
+
+    .view-all-btn {
+        font-size: 12px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .data-table {
+        min-width: 400px;
+    }
+
+    /* Mobile Bottom Navigation */
+    body {
+        padding-bottom: 0;
+    }
+
+    .bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 70px;
+        background: #1a1a2e;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+        z-index: 999;
+    }
+
+    /* Each slot equal */
+    .bottom-nav-item,
+    .nav-spacer {
+        flex: 1;
+        text-align: center;
+    }
+
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: #888;
+        transition: var(--transition);
+        min-height: 50px;
+    }
+
+    .bottom-nav-item svg {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 2px;
+        stroke: currentColor;
+    }
+
+    .bottom-nav-item.active {
+        color: #60a5fa;
+    }
+
+    /* CENTER FLOATING BUTTON */
+    .center-btn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: calc(35px + max(0px, env(safe-area-inset-bottom) / 2));
+
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        border: 4px solid #1a1a2e;
+        z-index: 1000;
+    }
+
+    .center-btn img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
+
+    /* Small Mobile (320px - 480px) */
+    @media (max-width: 480px) {
+        .header-title {
+            font-size: 24px;
+        }
+
+        .header-subtitle {
+            font-size: 13px;
+        }
+
+        .metric-card {
+            padding: 14px;
+        }
+
+        .metric-value {
+            font-size: 20px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+        }
+
+        .table-header {
+            padding: 10px;
+        }
+
+        .data-table {
+            min-width: 350px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 10px 6px;
+            font-size: 11px;
+        }
+
+        .brand-text {
+            display: none;
+        }
+
+        .bottom-nav-item span {
+            display: block;
+            font-size: 11px;
+            margin-top: 3px;
+            text-align: center;
+        }
+
+        .bottom-nav {
+            height: 60px;
+        }
+    }
+}
+
+/* iPad & Tablet Portrait (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Landscape Orientation Fix */
+@media (max-height: 500px) and (orientation: landscape) {
+    .main-content {
+        padding: 12px 0 85px 0;
+    }
+
+    .header {
+        margin-bottom: 12px;
+    }
+
+    .header-title {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+
+    .metrics-grid {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .metric-card {
+        padding: 12px;
+    }
+}
