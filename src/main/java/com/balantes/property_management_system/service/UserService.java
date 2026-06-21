@@ -35,9 +35,6 @@ public class UserService implements UserDetailsService {
         this.leaseRepository = leaseRepository;
     }
 
-    // =========================
-    // GET ALL USERS
-    // =========================
     public List<UserDTO> getAll() {
         return userRepository.findAll()
                 .stream()
@@ -49,9 +46,6 @@ public class UserService implements UserDetailsService {
                 .toList();
     }
 
-    // =========================
-    // GET USER BY ID
-    // =========================
     public UserDTO getById(int id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -62,9 +56,6 @@ public class UserService implements UserDetailsService {
         return dto;
     }
 
-    // =========================
-    // CREATE USER
-    // =========================
     public void create(UserDTO userDTO) {
         System.out.println("CREATE METHOD CALLED");
         // 1. basic validation safeguard
@@ -78,10 +69,8 @@ public class UserService implements UserDetailsService {
 
         User model = new User(userDTO);
 
-        // 2. encode password
         model.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 
-        // 3. image upload (Cloudinary safe)
         try {
             if (userDTO.getImage() != null && !userDTO.getImage().isEmpty()) {
 
@@ -101,21 +90,9 @@ public class UserService implements UserDetailsService {
             throw new RuntimeException("Image upload failed: " + e.getMessage());
         }
 
-
-        System.out.println(model.getFirstName());
-        System.out.println(model.getEmailAddress());
-        System.out.println(model.getType());
-
-        // 4. save user
-        System.out.println("Before save");
         userRepository.save(model);
-        System.out.println("After save");
-        System.out.println("USER SAVED");
     }
 
-    // =========================
-    // UPDATE USER
-    // =========================
     public void update(UserDTO userDTO) {
 
         User existing = userRepository.findById(userDTO.getId())
@@ -155,20 +132,10 @@ public class UserService implements UserDetailsService {
         userRepository.save(existing);
     }
 
-    // =========================
-    // DELETE USER
-    // =========================
     public void delete(int id) {
         userRepository.deleteById(id);
     }
 
-    // =========================
-    // ACTIVE TENANT LOGIC
-    // =========================
-
-    // TRUE ONLY IF:
-    // - user is NOT ADMIN
-    // - AND has ACTIVE lease
     private boolean isTenantActive(User user) {
 
         if (isAdmin(user)) {
@@ -201,9 +168,6 @@ public class UserService implements UserDetailsService {
         return hasActiveLease(user);
     }
 
-    // =========================
-    // ACTIVE USERS ONLY (TENANTS ONLY)
-    // =========================
     public List<UserDTO> getActiveUsers() {
 
         return userRepository.findAll()
@@ -218,9 +182,6 @@ public class UserService implements UserDetailsService {
                 .toList();
     }
 
-    // =========================
-    // COUNT ACTIVE TENANTS
-    // =========================
     public long countActiveTenants() {
         return userRepository.findAll()
                 .stream()
@@ -229,9 +190,6 @@ public class UserService implements UserDetailsService {
                 .count();
     }
 
-    // =========================
-    // SPRING SECURITY LOGIN
-    // =========================
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -248,8 +206,6 @@ public class UserService implements UserDetailsService {
                 user.getFirstName() + " " + user.getLastName() // ✅ full name manually built
         );
     }
-
-    // Get user details by email (logged-in user lookup)
 
     public UserDTO getByEmail(String email) {
 

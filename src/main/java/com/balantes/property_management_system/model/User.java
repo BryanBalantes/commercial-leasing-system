@@ -58,7 +58,6 @@ public class User {
         this.firstName = dto.getFirstName();
         this.middleName = dto.getMiddleName();
         this.lastName = dto.getLastName();
-//    this.profilePicLocation = dto.getProfilePicLocation();
         this.profilePicUrl = dto.getProfilePicUrl();
         this.cloudinaryProfilePicId = dto.getCloudinaryProfilePicId();
         this.address = dto.getAddress();

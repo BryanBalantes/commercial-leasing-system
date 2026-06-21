@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/user-style/user-style.css">
   </head>
   <body>
-    <!-- Desktop Navigation -->
+
     <nav class="navbar">
       <div class="navbar-container">
         <div class="navbar-brand">
@@ -35,11 +35,10 @@
           </a>
           <a th:href="@{/leases/add}" class="nav-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <!-- Notebook -->
+
               <path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
               <path d="M15 3v4h4"></path>
 
-              <!-- Pen -->
               <path d="M9 16l5-5 2 2-5 5H9v-2z"></path>
               <path d="M13 10l2 2"></path>
             </svg>
@@ -51,10 +50,8 @@
                  fill="none" stroke="currentColor" stroke-width="2"
                  stroke-linecap="round" stroke-linejoin="round">
 
-              <!-- Building -->
               <rect x="3" y="2" width="14" height="20" rx="2"></rect>
 
-              <!-- Windows -->
               <path d="M7 6h.01"></path>
               <path d="M11 6h.01"></path>
               <path d="M7 10h.01"></path>
@@ -62,10 +59,8 @@
               <path d="M7 14h.01"></path>
               <path d="M11 14h.01"></path>
 
-              <!-- Door -->
               <path d="M8 22v-4h4v4"></path>
 
-              <!-- Plus Sign -->
               <path d="M20 8v6"></path>
               <path d="M17 11h6"></path>
             </svg>
@@ -85,7 +80,6 @@
       </div>
     </nav>
 
-    <!-- Mobile Bottom Navigation -->
     <nav class="bottom-nav">
 
       <a th:href="@{/commercial-units}" class="bottom-nav-item">
@@ -93,10 +87,8 @@
              fill="none" stroke="currentColor" stroke-width="2"
              stroke-linecap="round" stroke-linejoin="round">
 
-          <!-- Building -->
           <rect x="3" y="2" width="14" height="20" rx="2"></rect>
 
-          <!-- Windows -->
           <path d="M7 6h.01"></path>
           <path d="M11 6h.01"></path>
           <path d="M7 10h.01"></path>
@@ -104,10 +96,8 @@
           <path d="M7 14h.01"></path>
           <path d="M11 14h.01"></path>
 
-          <!-- Door -->
           <path d="M8 22v-4h4v4"></path>
 
-          <!-- Plus Sign -->
           <path d="M20 8v6"></path>
           <path d="M17 11h6"></path>
         </svg>
@@ -125,16 +115,14 @@
         <span>Users</span>
       </a>
 
-      <!-- CENTER SLOT (EMPTY FOR SPACING) -->
       <div class="nav-spacer"></div>
 
       <a th:href="@{/leases/add}" class="bottom-nav-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <!-- Notebook -->
+
           <path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
           <path d="M15 3v4h4"></path>
 
-          <!-- Pen -->
           <path d="M9 16l5-5 2 2-5 5H9v-2z"></path>
           <path d="M13 10l2 2"></path>
         </svg>
@@ -150,16 +138,14 @@
         <span>Logout</span>
       </a>
 
-      <!-- FLOATING BUTTON -->
       <a th:href="@{/homepage/}" class="center-btn ">
         <img src="/images/CommercialSpace_Logo.png" alt="logo">
       </a>
     </nav>
 
     <div class="container">
-      <!-- USER PROFILE -->
-      <div id="user-detail">
 
+      <div id="user-detail">
 
         <div class="detail-header">
           <div>
@@ -219,7 +205,6 @@
           </div>
         </div>
 
-        <!-- PAYMENT RECORDS -->
         <div style="margin-top: 3rem;">
           <div class="section-header">
             <h2 class="section-title">Payment Records</h2>
@@ -285,7 +270,6 @@
           </div>
         </div>
 
-        <!-- LEASES -->
         <div style="margin-top: 3rem;">
           <div class="section-header">
             <h2 class="section-title">Active Lease</h2>
@@ -344,9 +328,6 @@
       </div>
     </div>
 
-    <!-- MODALS -->
-
-    <!-- Edit User Modal -->
     <div id="editUserModal" class="modal" onclick="closeModalOnBackdrop(event, 'editUserModal')">
       <div class="modal-content" onclick="event.stopPropagation()">
         <div class="modal-header">
@@ -407,7 +388,6 @@
       </div>
     </div>
 
-    <!-- Edit Lease Modal -->
     <div id="editLeaseModal" class="modal" onclick="closeModalOnBackdrop(event, 'editLeaseModal')">
       <div class="modal-content" onclick="event.stopPropagation()">
         <div class="modal-header">
@@ -511,7 +491,6 @@
       </div>
     </div>
 
-    <!-- Delete Confirmation Modal -->
     <div id="deleteConfirmModal" class="modal" onclick="closeModalOnBackdrop(event, 'deleteConfirmModal')">
       <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 400px;">
         <div class="modal-header">

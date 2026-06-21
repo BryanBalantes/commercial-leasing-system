@@ -35,11 +35,10 @@
             </a>
             <a th:href="@{/leases/add}" class="nav-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <!-- Notebook -->
+
                 <path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
                 <path d="M15 3v4h4"></path>
 
-                <!-- Pen -->
                 <path d="M9 16l5-5 2 2-5 5H9v-2z"></path>
                 <path d="M13 10l2 2"></path>
               </svg>
@@ -51,10 +50,8 @@
                    fill="none" stroke="currentColor" stroke-width="2"
                    stroke-linecap="round" stroke-linejoin="round">
 
-                <!-- Building -->
                 <rect x="3" y="2" width="14" height="20" rx="2"></rect>
 
-                <!-- Windows -->
                 <path d="M7 6h.01"></path>
                 <path d="M11 6h.01"></path>
                 <path d="M7 10h.01"></path>
@@ -62,10 +59,8 @@
                 <path d="M7 14h.01"></path>
                 <path d="M11 14h.01"></path>
 
-                <!-- Door -->
                 <path d="M8 22v-4h4v4"></path>
 
-                <!-- Plus Sign -->
                 <path d="M20 8v6"></path>
                 <path d="M17 11h6"></path>
               </svg>
@@ -85,25 +80,15 @@
         </div>
       </nav>
 
-      <!-- Mobile Bottom Navigation -->
       <nav class="bottom-nav">
-        <!--      <a th:href="@{/homepage/}" class="bottom-nav-item">-->
-        <!--        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">-->
-        <!--          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>-->
-        <!--          <polyline points="9 22 9 12 15 12 15 22"></polyline>-->
-        <!--        </svg>-->
-        <!--        <span>Home</span>-->
-        <!--      </a>-->
 
         <a th:href="@{/commercial-units}" class="bottom-nav-item">
           <svg width="16" height="16" viewBox="0 0 24 24"
                fill="none" stroke="currentColor" stroke-width="2"
                stroke-linecap="round" stroke-linejoin="round">
 
-            <!-- Building -->
             <rect x="3" y="2" width="14" height="20" rx="2"></rect>
 
-            <!-- Windows -->
             <path d="M7 6h.01"></path>
             <path d="M11 6h.01"></path>
             <path d="M7 10h.01"></path>
@@ -111,10 +96,8 @@
             <path d="M7 14h.01"></path>
             <path d="M11 14h.01"></path>
 
-            <!-- Door -->
             <path d="M8 22v-4h4v4"></path>
 
-            <!-- Plus Sign -->
             <path d="M20 8v6"></path>
             <path d="M17 11h6"></path>
           </svg>
@@ -132,16 +115,14 @@
           <span>Users</span>
         </a>
 
-        <!-- CENTER SLOT (EMPTY FOR SPACING) -->
         <div class="nav-spacer"></div>
 
         <a th:href="@{/leases/add}" class="bottom-nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <!-- Notebook -->
+
             <path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
             <path d="M15 3v4h4"></path>
 
-            <!-- Pen -->
             <path d="M9 16l5-5 2 2-5 5H9v-2z"></path>
             <path d="M13 10l2 2"></path>
           </svg>
@@ -157,12 +138,10 @@
           <span>Logout</span>
         </a>
 
-        <!-- FLOATING BUTTON -->
         <a th:href="@{/homepage/}" class="center-btn ">
           <img src="/images/CommercialSpace_Logo.png" alt="logo">
         </a>
       </nav>
-
 
       <div class="container">
         <div class="form-section">
