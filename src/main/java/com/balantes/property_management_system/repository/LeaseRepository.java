@@ -1,5 +1,6 @@
 package com.balantes.property_management_system.repository;
 
+import com.balantes.property_management_system.model.CommercialUnit;
 import com.balantes.property_management_system.model.Lease;
 import com.balantes.property_management_system.model.enums.LeaseStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
