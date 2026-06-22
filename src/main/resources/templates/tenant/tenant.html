@@ -338,7 +338,8 @@
         </div>
         <form id="editUserForm" th:action="@{/users/update}"
               th:object="${user}"
-              th:method="post">
+              th:method="post"
+              enctype="multipart/form-data">
           <input type="hidden"
                  th:field="*{id}">
           <div class="form-row">
@@ -370,6 +371,22 @@
             </div>
           </div>
           <div class="form-group">
+            <label>Profile Image</label>
+            <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    onchange="previewImage(event)"
+            />
+            <div class="preview">
+              <img
+                      id="preview"
+                      th:if="${user.profilePicUrl != null}"
+                      th:src="${user.profilePicUrl}"
+              />
+            </div>
+          </div>
+          <div class="form-group">
             <label>Status</label>
             <div class="info-value">
                     <span th:if="${user.active}" class="badge badge-active">
@@ -385,110 +402,6 @@
             <button type="submit" class="btn btn-primary">
               Save Changes
             </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Edit Lease Modal -->
-    <div id="editLeaseModal" class="modal" onclick="closeModalOnBackdrop(event, 'editLeaseModal')">
-      <div class="modal-content" onclick="event.stopPropagation()">
-        <div class="modal-header">
-          <h2 class="modal-title">Edit Lease</h2>
-          <button class="modal-close" onclick="closeModal('editLeaseModal')">×</button>
-        </div>
-        <form id="editLeaseForm"
-              th:action="@{/leases/update}"
-              method="post"
-              enctype="multipart/form-data"
-              th:object="${lease}">
-          <input type="hidden" th:field="*{id}">
-          <input type="hidden" th:field="*{userId}">
-          <input type="hidden" th:field="*{monthlyRental}">
-
-          <div class="form-group">
-            <label>Commercial Unit</label>
-            <select th:field="*{commercialUnitId}">
-              <option th:each="unit : ${units}"
-                      th:value="${unit.id}"
-                      th:text="${unit.unitName}">
-              </option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Start Date</label>
-              <input type="date"
-                     th:field="*{entryDate}"
-                     required>
-            </div>
-
-            <div class="form-group">
-              <label>Monthly Rental</label>
-              <input type="text"
-                     th:value="${lease.formattedMonthlyRental}"
-                     readonly>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>1 Month Advance</label>
-              <input type="number"
-                     th:field="*{oneMonthAdvance}"
-                     step="0.01"
-                     required>
-            </div>
-
-            <div class="form-group">
-              <label>1 Month Deposit</label>
-              <input type="number"
-                     th:field="*{oneMonthDeposit}"
-                     step="0.01"
-                     required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Status</label>
-
-            <select th:field="*{status}" required>
-              <option value="ACTIVE">Active</option>
-              <option value="INACTIVE">Inactive</option>
-              <option value="PENDING">Pending</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Upload Receipt</label>
-            <input
-                    type="file"
-                    name="file"
-                    accept="image/*"
-                    onchange="previewImage(event)"
-            />
-
-            <div class="preview">
-              <img
-                      id="preview"
-                      th:if="${lease.receiptImageUrl != null}"
-                      th:src="${lease.receiptImageUrl}"
-              />
-            </div>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button"
-                    class="btn btn-secondary"
-                    onclick="closeModal('editLeaseModal')">
-              Cancel
-            </button>
-
-            <button
-                    type="submit"
-                    class="btn btn-primary"
-                    th:text="${lease.id != 0 ? 'Save Change' : 'Create'}"
-            ></button>
           </div>
         </form>
       </div>
