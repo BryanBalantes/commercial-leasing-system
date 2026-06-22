@@ -336,8 +336,7 @@
         </div>
         <form id="editUserForm" th:action="@{/users/update}"
               th:object="${user}"
-              th:method="post"
-              enctype="multipart/form-data">
+              th:method="post">
           <input type="hidden"
                  th:field="*{id}">
           <div class="form-row">
@@ -366,22 +365,6 @@
             <div class="form-group">
               <label for="editUserAddress">Address</label>
               <input th:field="*{address}" type="text" id="editUserAddress" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Profile Image</label>
-            <input
-                    type="file"
-                    th:field="*{image}"
-                    accept="image/*"
-                    onchange="previewImage(event)"
-            />
-            <div class="preview">
-              <img
-                      id="prev"
-                      th:if="${user.profileImageUrl != null}"
-                      th:src="${user.profileImageUrl}"
-              />
             </div>
           </div>
           <div class="form-group">
