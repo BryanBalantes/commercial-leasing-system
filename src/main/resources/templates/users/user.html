@@ -178,29 +178,29 @@
             </div>
             <div class="info-field">
               <div class="info-label">Entry Date</div>
-              <div th:text="${lease.entryDate}" class="info-value"></div>
+              <div th:text="${lease != null ? lease.entryDate : 'No Active Lease'}" class="info-value"></div>
             </div>
           </div>
 
           <div class="info-group">
             <div class="info-field">
               <div class="info-label">1 Month Deposit</div>
-              <div th:text="${lease.formattedDeposit}" class="info-value"></div>
+              <div th:text="${lease != null ? lease.formattedDeposit : '-'}" class="info-value"></div>
             </div>
             <div class="info-field">
               <div class="info-label">1 Month Advance</div>
-              <div th:text="${lease.formattedAdvance}" class="info-value"></div>
+              <div th:text="${lease != null ? lease.formattedAdvance : '-'}" class="info-value"></div>
             </div>
           </div>
 
           <div class="info-group">
             <div class="info-field">
               <div class="info-label">Commercial Unit</div>
-              <div th:text="${lease.unitName}" class="info-value"></div>
+              <div th:text="${lease != null ? lease.unitName : '-'}" class="info-value"></div>
             </div>
             <div class="info-field">
               <div class="info-label">Monthly Rental</div>
-              <div th:text="${lease.formattedMonthlyRental}" class="info-value"></div>
+              <div th:text="${lease != null ? lease.formattedMonthlyRental : '-'}" class="info-value"></div>
             </div>
           </div>
         </div>
@@ -295,8 +295,8 @@
                   </div>
                 </div>
                 <div class="card-row">
-                  <div class="card-label">Start Date</div>
-                  <div class="card-value" th:text="${lease.entryDate}"></div>
+                  <div class="card-label">Entry Date</div>
+                  <div class="card-value" th:text="${lease != null ? lease.entryDate : 'No Active Lease'}"></div>
                 </div>
 
                 <div class="card-row" style="grid-column: 1 / -1;">
@@ -415,7 +415,7 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label>Start Date</label>
+              <label>Entry Date</label>
               <input type="date"
                      th:field="*{entryDate}"
                      required>

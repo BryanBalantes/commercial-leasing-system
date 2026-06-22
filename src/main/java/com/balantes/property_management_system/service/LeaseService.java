@@ -108,21 +108,39 @@ public class LeaseService {
         CommercialUnit newUnit = commercialUnitRepository.findById(dto.getCommercialUnitId())
                 .orElseThrow(() -> new RuntimeException("Unit not found"));
 
-        CommercialUnit oldUnit = lease.getCommercialUnit();
+//        CommercialUnit oldUnit = lease.getCommercialUnit();
+        CommercialUnit oldUnit = commercialUnitRepository.findById(
+                lease.getCommercialUnit().getId()
+        ).orElseThrow(() -> new RuntimeException("Old unit not found"));
 
-        // CASE 1: if user changed unit
-        if (oldUnit.getId() != newUnit.getId()) {
+//        // CASE 1: if user changed unit
+//        if (oldUnit.getId() != newUnit.getId()) {
+//
+//            // old unit becomes VACANT
+//            oldUnit.setStatus(CommercialUnitStatus.VACANT);
+//            commercialUnitRepository.save(oldUnit);
+//
+//            // new unit must be available
+//            if (newUnit.getStatus() != CommercialUnitStatus.VACANT) {
+//                throw new RuntimeException("New unit is not available");
+//            }
+//
+//            // new unit becomes OCCUPIED
+//            newUnit.setStatus(CommercialUnitStatus.OCCUPIED);
+//            commercialUnitRepository.save(newUnit);
+//
+//            lease.setCommercialUnit(newUnit);
+//        }
 
-            // old unit becomes VACANT
+        if (!oldUnit.getId().equals(newUnit.getId())) {
+
             oldUnit.setStatus(CommercialUnitStatus.VACANT);
             commercialUnitRepository.save(oldUnit);
 
-            // new unit must be available
             if (newUnit.getStatus() != CommercialUnitStatus.VACANT) {
                 throw new RuntimeException("New unit is not available");
             }
 
-            // new unit becomes OCCUPIED
             newUnit.setStatus(CommercialUnitStatus.OCCUPIED);
             commercialUnitRepository.save(newUnit);
 
