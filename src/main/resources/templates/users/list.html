@@ -159,7 +159,7 @@
 
           <div class="users-grid">
             <div class="user-card" th:each="user : ${users}">
-              <img th:src="${user.profilePicUrl}"
+              <img th:src="${user.profilePicUrl != null ? user.profilePicUrl : '/images/default.png'}"
                    alt="Profile Image">
 
               <h3 th:text="${user.firstName + ' ' + user.lastName}">
