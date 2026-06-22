@@ -236,15 +236,15 @@
             <label>Profile Image</label>
             <input
                     type="file"
-                    th:field="*{image}"
+                    name="image"
                     accept="image/*"
                     onchange="previewImage(event)"
             />
             <div class="preview">
               <img
                       id="preview"
-                      th:if="${user.profileImageUrl != null}"
-                      th:src="${user.profileImageUrl}"
+                      th:if="${user.profilePicUrl != null}"
+                      th:src="${user.profilePicUrl}"
               />
             </div>
           </div>
