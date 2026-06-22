@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/users")
@@ -135,6 +136,7 @@ public class UserController {
         userService.update(userDTO);
         return "redirect:/users/";
     }
+
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
